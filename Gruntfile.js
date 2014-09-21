@@ -8,10 +8,11 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          outputStyle: 'compressed'
+          outputStyle: 'expanded'
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          '../default/css/foundation.css': 'scss/app.scss',
+          '../default/css/custom.foundation.css': 'scss/custom.scss'
         }        
       }
     },
@@ -25,7 +26,7 @@ module.exports = function(grunt) {
       }
     }
   });
-
+  grunt.option('color', false);
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
