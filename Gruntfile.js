@@ -4,20 +4,15 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss']
+        includePaths: ['bower_components/foundation/scss'],
+        sourceMap: true
       },
       dist: {
         options: {
           outputStyle: 'expanded'
         },
         files: {
-          '../default/css/foundation.css': 'scss/app.scss',
-          '../default/css/custom.css': 'scss/custom.scss',
-          '../default/css/custom.medium.css': 'scss/custom.medium.scss',
-          '../default/css/custom.large.css': 'scss/custom.large.scss',
-          '../default/css/custom.xlarge.css': 'scss/custom.xlarge.scss',
-          '../default/css/custom.nav.css': 'scss/custom.nav.scss',
-          '../default/css/custom.nav.full.css': 'scss/custom.nav.full.scss'
+          '../default/css/foundation.css': 'scss/app.scss'
         }        
       }
     },
