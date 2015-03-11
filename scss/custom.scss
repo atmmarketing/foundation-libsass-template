@@ -56,12 +56,16 @@ div#main-wrap {
 #head-wrap { 
 	position: relative;
 	background:  #FFFFFF;
+	text-align: center;
+	
+	@media #{$medium-up} { 
+		text-align: left;
+	}
 }
 
 header {
 	position: relative;
-   overflow: hidden;
-   height:60px;
+	overflow: hidden;
 }
 
 header h1{
@@ -71,7 +75,7 @@ header h1{
 
 /* !TOP BAR */
 #nav-wrap{
-	background: #000;
+	background: $primary-color;
 }
 .top-bar {
 	margin-bottom: 0;
@@ -96,39 +100,6 @@ div.main-content {
 }
 
 
-
-div.main-content h1,
-div.main-content h2,
-div.main-content h3,
-div.main-content h4,
-div.main-content h5,
-div.main-content h6 {
-    margin: 1em 0 .25em; 
-    font-size: 2.5em; 
-    font-family: sans-serif;
-    line-height: 1.2;
-}
-
-div.main-content h5 {
-    font-size: 1.4em; 
-}
-
-div.main-content h2 {
-    font-size: 2em
-}
-
-div.main-content h3 {
-    font-size: 1.8em
-}
-
-div.main-content h4 {
-    font-size: 1.5em; 
-}
-
-div.main-content h6 {
-    font-size: 1.2em; 
-}
-
 div.main-content .column h1:first-child,
 div.main-content .column h2:first-child,
 div.main-content .column h3:first-child,
@@ -139,10 +110,6 @@ div.main-content .column h6:first-child {
 }
 
 div.main-content .column h1.pagetitle { margin-top: .5em }
-
-div.main-content p {
-	margin: .5em 0 1em
-}
 
 /* !VIDEO */
 .video-container {
