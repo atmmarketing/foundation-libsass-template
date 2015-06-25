@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 			    outputStyle: 'expanded'
 			  },
 			  files: {
+			    '../default/css/foundation.css': 'scss/app.lib.scss',
 			    '../default/css/custom.css': 'scss/custom.scss'
 			  }
 			},
@@ -83,7 +84,7 @@ module.exports = function(grunt) {
 			
 			lib: {
 				files: {
-					'../default/js/libraries.min.js': [  
+					'../default/js/lib.min.js': [  
 						'../base/js/vendor/jquery.js', 
 						'../base/js/vendor/jquery-ui-1.10.3.custom.min.js', 
 						'../base/js/foundation/foundation.js', 
@@ -103,7 +104,7 @@ module.exports = function(grunt) {
 			prod: {
 				files: {
 					'../default/js/custom.min.js': [  
-						'../default/js/libraries.min.js',
+						'../default/js/lib.min.js',
 						'../default/js/custom.js' ]
 					
 				}
@@ -123,5 +124,5 @@ module.exports = function(grunt) {
 	//grunt.registerMultiTask('build', ['sass']);
 	grunt.registerTask('lib', ['sass:lib','uglify:lib','concat:lib']);
 	grunt.registerTask('default', ['sass:dev','watch']);
-	grunt.registerTask('prod', ['sass:prod','uglify:prod']);
+	grunt.registerTask('prod', ['sass:prod','uglify:prod', 'concat:prod']);
 }
