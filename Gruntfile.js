@@ -7,14 +7,6 @@ module.exports = function(grunt) {
 			  includePaths: ['bower_components/foundation/scss'],
 			  sourceMap: true
 			},
-			lib: {
-				options: {
-			    outputStyle: 'expanded'
-			  },
-			  files: {
-			    '../default/css/foundation.css': 'scss/app.lib.scss'
-			  }
-			},
 			dev: {
 				options: {
 			    outputStyle: 'expanded'
@@ -26,7 +18,7 @@ module.exports = function(grunt) {
 			},
 			prod: {
 			  options: {
-			    outputStyle: 'expanded'
+			    outputStyle: 'compressed'
 			  },
 			  files: {
 			    '../default/css/foundation.min.css': 'scss/app.prod.scss'
@@ -122,7 +114,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	
 	//grunt.registerMultiTask('build', ['sass']);
-	grunt.registerTask('lib', ['sass:lib','uglify:lib','concat:lib']);
+	grunt.registerTask('lib', ['uglify:lib','concat:lib']);
 	grunt.registerTask('default', ['sass:dev','watch']);
 	grunt.registerTask('prod', ['sass:prod','uglify:prod', 'concat:prod']);
 }
