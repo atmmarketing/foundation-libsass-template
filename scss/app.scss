@@ -1,6 +1,6 @@
 @import "settings";
 @import "normalize";
-//@import "foundation";
+@import "foundation";
 
 // Or selectively include components
 @import
@@ -30,8 +30,8 @@
 //   "foundation/components/side-nav",
 //   "foundation/components/split-buttons",
 //   "foundation/components/sub-nav",
-//   "foundation/components/switch",
    "foundation/components/tables",
+//   "foundation/components/switches",
 //   "foundation/components/tabs",
 //   "foundation/components/thumbs",
 //   "foundation/components/tooltips",
