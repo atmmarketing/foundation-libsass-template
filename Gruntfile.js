@@ -1,4 +1,14 @@
 module.exports = function(grunt) {
+	var cssminFiles = {'../default/css.dev/lib.min.css':[
+					'../base/fontawesome/css/font-awesome.min.css',
+					'../base/css/body.css',
+					'../base/js/vendor/flexslider/flexslider.css',
+					'../base/css/smoothness/jquery-ui-1.10.3.custom.min.css',
+					'../base/js/vendor/fancybox/jquery.fancybox.css',
+					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css'
+					]
+				};
+	
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 	
@@ -9,21 +19,14 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				options: {
-			    outputStyle: 'expanded'
-			  },
-			  files: {
-			    '../default/css/foundation.css': 'scss/app.lib.scss',
-			    '../default/css/custom.css': 'scss/custom.scss'
-			  }
-			},
-			prod: {
-			  options: {
 			    outputStyle: 'compressed'
 			  },
 			  files: {
-			    '../default/css/foundation.min.css': 'scss/app.prod.scss'
-			  }        
+			    '../default/css.dev/foundation.css': 'scss/app.lib.scss',
+			    '../default/css.dev/custom.css': 'scss/custom.scss'
+			  }
 			}
+			
 		},
 	
 		watch: {
@@ -41,31 +44,32 @@ module.exports = function(grunt) {
 	 
 		},
 		
-		concat: {
+		cssmin: {
 			options: {
-				sourceMap: true
+				roundingPrecision: -1,
+				keepSpecialComments : 0,
+				rebase: true,
+				relativeTo : '../default/',
 			},
 			
 			lib: {
-				src: [
-					'../base/fontawesome/css/font-awesome.min.css',
-					'../base/css/body.css',
-					'../base/js/vendor/flexslider/flexslider.css',
-					'../base/css/smoothness/jquery-ui-1.10.3.custom.min.css',
-					'../base/js/vendor/fancybox/jquery.fancybox.css',
-					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css',
-				],
-		      dest: '../default/css/lib.min.css',
+				options: {
+					sourceMap:true,
+					target : '../default/css.dev/'
+				},
+				files:cssminFiles
 			},
-
 			prod: {
-				src: [
-					'../default/css/lib.min.css',
-					'../default/css/foundation.min.css',
-				],
-		      dest: '../default/css/custom.min.css',
+				options: {
+					sourceMap:false,
+					target : '../default/css/'
+				},
+				files:{'../default/css/custom.min.css' : [
+					'../default/css.dev/lib.min.css',
+					'../default/css.dev/foundation.css',
+					'../default/css.dev/custom.css'
+				]}
 			}
-			
 		},
 		
 		uglify: {
@@ -76,7 +80,7 @@ module.exports = function(grunt) {
 			
 			lib: {
 				files: {
-					'../default/js/lib.min.js': [  
+					'../default/js.dev/lib.min.js': [  
 						'../base/js/vendor/jquery.js', 
 						'../base/js/vendor/jquery-ui-1.10.3.custom.min.js', 
 						'../base/js/foundation/foundation.js', 
@@ -96,8 +100,8 @@ module.exports = function(grunt) {
 			prod: {
 				files: {
 					'../default/js/custom.min.js': [  
-						'../default/js/lib.min.js',
-						'../default/js/custom.js' ]
+						'../default/js.dev/lib.min.js',
+						'../default/js.dev/custom.js' ]
 					
 				}
 			}
@@ -111,10 +115,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	
-	//grunt.registerMultiTask('build', ['sass']);
-	grunt.registerTask('lib', ['uglify:lib','concat:lib']);
+	grunt.registerTask('lib', ['cssmin:lib','uglify:lib']);
 	grunt.registerTask('default', ['sass:dev','watch']);
-	grunt.registerTask('prod', ['sass:prod','uglify:prod', 'concat:prod']);
+	grunt.registerTask('prod', ['sass:dev','cssmin:prod','uglify:prod']);
 }
