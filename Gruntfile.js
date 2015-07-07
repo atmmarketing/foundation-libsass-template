@@ -1,13 +1,5 @@
 module.exports = function(grunt) {
-	var cssminFiles = {'../default/css.dev/lib.min.css':[
-					'../base/fontawesome/css/font-awesome.min.css',
-					'../base/css/body.css',
-					'../base/js/vendor/flexslider/flexslider.css',
-					'../base/css/smoothness/jquery-ui-1.10.3.custom.min.css',
-					'../base/js/vendor/fancybox/jquery.fancybox.css',
-					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css'
-					]
-				};
+	
 	
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -57,7 +49,15 @@ module.exports = function(grunt) {
 					sourceMap:true,
 					target : '../default/css.dev/'
 				},
-				files:cssminFiles
+				files:{'../default/css.dev/lib.min.css':[
+					'../base/fontawesome/css/font-awesome.min.css',
+					'../base/css/body.css',
+					'../base/js/vendor/flexslider/flexslider.css',
+					'../base/css/smoothness/jquery-ui-1.10.3.custom.min.css',
+					'../base/js/vendor/fancybox/jquery.fancybox.css',
+					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css'
+					]
+				}
 			},
 			prod: {
 				options: {
