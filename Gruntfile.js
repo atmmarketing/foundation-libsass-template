@@ -1,24 +1,21 @@
 module.exports = function(grunt) {
 	
-	
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 	
 		sass: {
 			options: {
 			  includePaths: ['bower_components/foundation/scss'],
-			  sourceMap: true
+			  outputStyle: 'nested'
 			},
 			dev: {
 				options: {
-			    outputStyle: 'compressed'
+			    sourceMap: 'scss/custom.css.map'
 			  },
 			  files: {
-			    '../default/css.dev/foundation.css': 'scss/app.lib.scss',
-			    '../default/css.dev/custom.css': 'scss/custom.scss'
+			    '../default/css.dev/custom.css': 'scss/app.lib.scss'
 			  }
 			}
-			
 		},
 	
 		watch: {
@@ -33,7 +30,6 @@ module.exports = function(grunt) {
 			  files: 'scss/**/*.scss',
 			  tasks: ['sass:dev']
 			}
-	 
 		},
 		
 		cssmin: {
@@ -66,7 +62,6 @@ module.exports = function(grunt) {
 				},
 				files:{'../default/css/custom.min.css' : [
 					'../default/css.dev/lib.min.css',
-					'../default/css.dev/foundation.css',
 					'../default/css.dev/custom.css'
 				]}
 			}
@@ -93,24 +88,18 @@ module.exports = function(grunt) {
 						'../base/js/vendor/fancybox/jquery.fancybox.pack.js', 
 						'../base/js/vendor/fancybox/helpers/jquery.fancybox-media.js', 
 						'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.js']
-					
 				}
-				
 			},
 			prod: {
 				files: {
 					'../default/js/custom.min.js': [  
 						'../default/js.dev/lib.min.js',
 						'../default/js.dev/custom.js' ]
-					
 				}
 			}
-			
-			
-			
 		}
-
 	});
+
 	grunt.option('color', false);
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');

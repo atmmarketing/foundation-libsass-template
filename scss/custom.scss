@@ -1,7 +1,7 @@
-@import "settings";
-$include-html-classes: false;
-$include-html-global-classes: $include-html-classes;
-@import "foundation";
+//@import "settings";
+//$include-html-classes: false;
+//$include-html-global-classes: $include-html-classes;
+//@import "foundation";
 
 @mixin transition-default{
 	-webkit-transition: all 0.2s ease-out;
@@ -107,6 +107,7 @@ div.main-content .column h4:first-child,
 div.main-content .column h5:first-child,
 div.main-content .column h6:first-child {
     margin-top: 0;
+    color: #000;
 }
 
 div.main-content .column h1.pagetitle { margin-top: .5em }
@@ -374,20 +375,21 @@ html.rgba div.errors{
 
 footer {
 	position: relative;
-	padding: 1em .9375em;
+	padding: 1em 0;
+	color: #fff;
 	
-	margin-bottom:10px;
-	overflow: visible;
-	background: #DDDDDD;
-/* 	font-size:12px; */
-/* 	line-height: 1.5; */
-	color: #333333;
-
-	/* border:1px solid #aaa; */
-	/* border-top-color: #8B8B8B; */
-	/* border-bottom-color: #BBB; */
+	@media #{$medium-up} { 
+		.atm-link {
+			float: right;
+			position: relative;
+			span {
+				position: absolute;
+				left: -10000em;
+			}
+		}
+	}
+	
 }
-
 
 
 footer p{
