@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 			  includePaths: ['bower_components/foundation/scss'],
-			  outputStyle: 'nested'
+			  outputStyle: 'compressed'
 			},
 			dev: {
 				options: {
@@ -23,7 +23,8 @@ module.exports = function(grunt) {
 				options: {
 					reload: true
 				},
-				files: ['Gruntfile.js']
+				files: ['Gruntfile.js'],
+				tasks: ['sass:dev']
 			},
 			
 			sass: {
