@@ -1,21 +1,16 @@
-//@import "settings";
-//$include-html-classes: false;
-//$include-html-global-classes: $include-html-classes;
-//@import "foundation";
-
-@mixin transition-default{
-	-webkit-transition: all 0.2s ease-out;
-	-moz-transition: all 0.2s ease-out;
-	-o-transition: all 0.2s ease-out;
-	-ms-transition: all 0.2s ease-out;
-	transition: all 0.2s ease-out;
+@mixin transition-default($seconds : 0.2s, $equation : ease-out){
+	-webkit-transition: all $seconds $equation;
+	-moz-transition: all $seconds $equation;
+	-o-transition: all $seconds $equation;
+	-ms-transition: all $seconds $equation;
+	transition: all $seconds $equation;
 }
 
-@mixin rounded-corner{
-	-webkit-border-radius: $global-radius;
-	-khtml-border-radius: $global-radius;	
-	-moz-border-radius: $global-radius;
-	border-radius: $global-radius;
+@mixin rounded-corner($radius : $global-radius){
+	-webkit-border-radius: $radius;
+	-khtml-border-radius: $radius;	
+	-moz-border-radius: $radius;
+	border-radius: $radius;
 }
 
 body {
@@ -92,13 +87,9 @@ header h1{
 
 div.main-content {
     position: relative;
-    min-height: 330px;
     padding: 0;
-    background: #fff;
-    line-height: 1.4;
     overflow: hidden;
 }
-
 
 div.main-content .column h1:first-child,
 div.main-content .column h2:first-child,
@@ -111,6 +102,18 @@ div.main-content .column h6:first-child {
 }
 
 div.main-content .column h1.pagetitle { margin-top: .5em }
+
+.button{
+	&[href*="@"]:before{
+		content: '\f0e0';
+		font-family: FontAwesome;
+		padding-right: 0.5em;
+	}
+	&.Link-PDF:before, &.Link-Web:before{
+		color: $button-font-color;
+	}
+}
+
 
 /* !VIDEO */
 .video-container {
@@ -130,16 +133,12 @@ div.main-content .column h1.pagetitle { margin-top: .5em }
 	height: 100%;
 }
 
-/* !BUTTONS */
-.button{
-	text-shadow: 0px -1px 0px rgba(0,0,0,.3);
-}
-
 /* !FLEXSLIDER */
 .flexslider{
 	border:0;
 	margin-bottom: 0;
 	background: transparent;
+	overflow: hidden;
 	-webkit-border-radius: 0px;
 	-khtml-border-radius: 0px;	
 	-moz-border-radius: 0px;
@@ -319,22 +318,17 @@ div.google-map img{
 	margin: 0 0 .25em;
 	
 }
-input.required,
-input.text,
-textarea {
-    width: 350px;
-    padding: .25em 5px;
-    font-size: 1em;
-    border: 1px solid #333;
-    background:#ccc;
-}
 
-input.required,
 p.required,
 span.required { 
 	background: #fff url(../../base/images/required-field-mark.png) no-repeat right .5em ;
 	padding-right: 20px ;
-	width:335px;	
+	-webkit-transition: background-position 0s;
+	-moz-transition: background-position 0s;
+	-o-transition: background-position 0s;
+	-ms-transition: background-position 0s;
+	transition: background-position 0s;
+
 }
 p.required{
 	width: auto;
@@ -349,20 +343,25 @@ span.required{
 	color: #333;
 }
 
-
-
-
-div.errors {
-    margin: .25em 0 .5em; padding: .5em;
-    background-color: #085082;
-    -webkit-border-radius: 7px;
-    -khtml-border-radius: 7px;	
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-    
+.datepicker-wrap{
+	position:relative;
 }
-html.rgba div.errors{
-	background-color: rgba(0,0,0, 0.4)
+
+.ui-datepicker-trigger{
+	position: absolute;
+	right: .5em;
+	top: 50%;
+	margin: -8px 0;
+	cursor: pointer
+}
+
+input.required.datepicker{
+	background-position: 90% .5em
+}
+
+input:not([type]), input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea,
+input[type="file"], input[type="checkbox"], input[type="radio"], select{
+	margin-bottom: 0;
 }
 
 
