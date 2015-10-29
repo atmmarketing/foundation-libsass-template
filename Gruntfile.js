@@ -79,10 +79,10 @@ module.exports = function(grunt) {
 					'../default/js.dev/lib.min.js': [  
 						'../base/js/vendor/jquery.js', 
 						'../base/js/vendor/jquery-ui-1.10.3.custom.min.js', 
-						'../base/js/foundation/foundation.js', 
-						'../base/js/foundation/foundation.alert.js', 
-						'../base/js/foundation/foundation.topbar.js', 
-						'../base/js/foundation/foundation.interchange.js', 
+						'bower_components/foundation/js/foundation/foundation.js', 
+						'bower_components/foundation/js/foundation/foundation.alert.js', 
+						'bower_components/foundation/js/foundation/foundation.topbar.js', 
+						'bower_components/foundation/js/foundation/foundation.interchange.js', 
 						'../base/js/vendor/flexslider/jquery.flexslider-min.js', 
 						'../base/js/vendor/placeholder.js', 
 						'../base/js/vendor/masonry.pkgd.min.js', 
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	
-	grunt.registerTask('lib', ['cssmin:lib','uglify:lib']);
+	grunt.registerTask('lib', ['cssmin:lib','uglify:lib','sass:dev']);
 	grunt.registerTask('default', ['sass:dev','watch']);
 	grunt.registerTask('prod', ['sass:dev','cssmin:prod','uglify:prod']);
 }
