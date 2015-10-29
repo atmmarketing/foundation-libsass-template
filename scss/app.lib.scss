@@ -4,7 +4,7 @@
 // Or selectively include components
 @import
 //   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
+"foundation/components/alert-boxes",
 //   "foundation/components/block-grid",
 //   "foundation/components/breadcrumbs",
 //   "foundation/components/button-groups",
@@ -37,7 +37,7 @@
 "foundation/components/top-bar",
 "foundation/components/type"
 //   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+"foundation/components/visibility"
 ;
 
-//@import "custom";
+@import "custom";
