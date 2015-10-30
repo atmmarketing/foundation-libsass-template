@@ -48,11 +48,11 @@ module.exports = function(grunt) {
 				},
 				files:{'../default/css.dev/lib.min.css':[
 					'../base/fontawesome/css/font-awesome.min.css',
-					'../base/css/body.css',
 					'../base/js/vendor/flexslider/flexslider.css',
 					'../base/css/smoothness/jquery-ui-1.10.3.custom.min.css',
 					'../base/js/vendor/fancybox/jquery.fancybox.css',
-					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css'
+					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css',
+					'../base/css/body.css'
 					]
 				}
 			},
@@ -77,14 +77,14 @@ module.exports = function(grunt) {
 			lib: {
 				files: {
 					'../default/js.dev/lib.min.js': [  
-						'../base/js/vendor/jquery.js', 
+						'bower_components/jquery/dist/jquery.min.js', 
 						'../base/js/vendor/jquery-ui-1.10.3.custom.min.js', 
 						'bower_components/foundation/js/foundation/foundation.js', 
 						'bower_components/foundation/js/foundation/foundation.alert.js', 
 						'bower_components/foundation/js/foundation/foundation.topbar.js', 
 						'bower_components/foundation/js/foundation/foundation.interchange.js', 
 						'../base/js/vendor/flexslider/jquery.flexslider-min.js', 
-						'../base/js/vendor/placeholder.js', 
+						'../base/js/vendor/placeholders.jquery.min.js', 
 						'../base/js/vendor/masonry.pkgd.min.js', 
 						'../base/js/vendor/fancybox/jquery.fancybox.pack.js', 
 						'../base/js/vendor/fancybox/helpers/jquery.fancybox-media.js', 
