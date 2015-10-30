@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 			  includePaths: ['bower_components/foundation/scss'],
-			  outputStyle: 'compressed'
+			  outputStyle: 'expanded'
 			},
 			dev: {
 				options: {
@@ -49,10 +49,9 @@ module.exports = function(grunt) {
 				files:{'../default/css.dev/lib.min.css':[
 					'../base/fontawesome/css/font-awesome.min.css',
 					'../base/js/vendor/flexslider/flexslider.css',
-					'../base/css/smoothness/jquery-ui-1.10.3.custom.min.css',
+					'../base/js/vendor/jquery-ui/jquery-ui.min.css',
 					'../base/js/vendor/fancybox/jquery.fancybox.css',
-					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css',
-					'../base/css/body.css'
+					'../base/js/vendor/fancybox/helpers/jquery.fancybox-buttons.css'
 					]
 				}
 			},
@@ -78,7 +77,7 @@ module.exports = function(grunt) {
 				files: {
 					'../default/js.dev/lib.min.js': [  
 						'bower_components/jquery/dist/jquery.min.js', 
-						'../base/js/vendor/jquery-ui-1.10.3.custom.min.js', 
+						'../base/js/vendor/jquery-ui/jquery-ui.min.js', 
 						'bower_components/foundation/js/foundation/foundation.js', 
 						'bower_components/foundation/js/foundation/foundation.alert.js', 
 						'bower_components/foundation/js/foundation/foundation.topbar.js', 
