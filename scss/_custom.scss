@@ -1,9 +1,9 @@
-@mixin transition-default($seconds : 0.2s, $equation : ease-out){
-	-webkit-transition: all $seconds $equation;
-	-moz-transition: all $seconds $equation;
-	-o-transition: all $seconds $equation;
-	-ms-transition: all $seconds $equation;
-	transition: all $seconds $equation;
+@mixin transition-default($attributes : all, $seconds : 0.3s, $equation : ease-in-out, $delay : 0s ){
+	-webkit-transition: $attributes $seconds $equation $delay;
+	-moz-transition: $attributes $seconds $equation $delay;
+	-o-transition: $attributes $seconds $equation $delay;
+	-ms-transition: $attributes $seconds $equation $delay;
+	transition: $attributes $seconds $equation $delay;
 }
 
 @mixin rounded-corner($radius : $global-radius){
@@ -68,6 +68,15 @@ header h1{
 	font-size:24px;
 }
 
+.text-centre{text-align: center;}
+@media #{$medium-up} {
+	.medium-text-right{
+		text-align: right;
+	}
+	
+}		
+
+
 /* !TOP BAR */
 #nav-wrap{
 	background: $primary-color;
@@ -98,7 +107,6 @@ div.main-content .column h4:first-child,
 div.main-content .column h5:first-child,
 div.main-content .column h6:first-child {
     margin-top: 0;
-    color: #000;
 }
 
 div.main-content .column h1.pagetitle { margin-top: .5em }
@@ -288,14 +296,12 @@ html.no-boxshadow div.main-content div.photo-gallery div.thumb:hover{
 
 /* !Google Maps */
 div.google-map {
-    float: right;
-    height: 300px; width: 100%;
-    margin: 0 10px 1em;
-    border: 1px solid #999
+	display: none;
+	height: 350px; width: 100%;
 }
 div.main-content div.google-map h3 {
     margin: 0;
-    font-size: .9em; font-weight: 700
+    font-size: .9em; 
 }
 div.main-content div.google-map p {
     margin: 0;
@@ -305,43 +311,17 @@ div.google-map img{
 	max-width:none;
 }
 
+@media #{$medium-up} { 
+	#google_map_static{
+		display: none;
+	}
+	div.google-map {
+		display: block;
+	}
+}
+
 
 /* !Forms */
-
-#contactForm{
-	margin: 1em 0 0;
-	
-}
-#contactForm legend{
-	font-weight: 200;
-	font-size: 2.1em;
-	margin: 0 0 .25em;
-	
-}
-
-p.required,
-span.required { 
-	background: #fff url(../../base/images/required-field-mark.png) no-repeat right .5em ;
-	padding-right: 20px ;
-	-webkit-transition: background-position 0s;
-	-moz-transition: background-position 0s;
-	-o-transition: background-position 0s;
-	-ms-transition: background-position 0s;
-	transition: background-position 0s;
-
-}
-p.required{
-	width: auto;
-	background-color: transparent;
-}
-p.required textarea{
-	background: #fff;
-}
-span.required{
-	padding:.25em 20px 0.2em .2em;
-	background-position: right center;
-	color: #333;
-}
 
 .datepicker-wrap{
 	position:relative;
@@ -362,6 +342,13 @@ input.required.datepicker{
 input:not([type]), input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea,
 input[type="file"], input[type="checkbox"], input[type="radio"], select{
 	margin-bottom: 0;
+}
+
+label.required:before{
+	content: '\f069';
+	font-family: FontAwesome;
+	padding-right: 0.5em;
+	
 }
 
 
