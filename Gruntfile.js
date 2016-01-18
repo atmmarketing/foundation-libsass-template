@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 			    sourceMap: 'scss/custom.css.map'
 			  },
 			  files: {
-			    '../default/css/custom.dev.css': 'scss/app.lib.scss'
+			    '../default/css.dev/custom.css': 'scss/app.lib.scss'
 			  }
 			}
 		},
@@ -44,9 +44,9 @@ module.exports = function(grunt) {
 			lib: {
 				options: {
 					sourceMap:true,
-					target : '../default/css/'
+					target : '../default/css.dev/'
 				},
-				files:{'../default/css/lib.dev.css':[
+				files:{'../default/css.dev/lib.min.css':[
 					'../base/fontawesome/css/font-awesome.min.css',
 					'../base/js/vendor/flexslider/flexslider.css',
 					'../base/js/vendor/jquery-ui/jquery-ui.min.css',
@@ -61,8 +61,8 @@ module.exports = function(grunt) {
 					target : '../default/css/'
 				},
 				files:{'../default/css/custom.min.css' : [
-					'../default/css/lib.dev.css',
-					'../default/css/custom.dev.css'
+					'../default/css.dev/lib.min.css',
+					'../default/css.dev/custom.css'
 				]}
 			}
 		},
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
 			
 			lib: {
 				files: {
-					'../default/js/lib.dev.js': [  
+					'../default/js.dev/lib.min.js': [  
 						'bower_components/jquery/dist/jquery.min.js', 
 						'../base/js/vendor/jquery-ui/jquery-ui.min.js', 
 						'bower_components/foundation/js/foundation/foundation.js', 
@@ -93,8 +93,8 @@ module.exports = function(grunt) {
 			prod: {
 				files: {
 					'../default/js/custom.min.js': [  
-						'../default/js/lib.dev.js',
-						'../default/js/custom.dev.js' ]
+						'../default/js.dev/lib.min.js',
+						'../default/js.dev/custom.js' ]
 				}
 			}
 		}
