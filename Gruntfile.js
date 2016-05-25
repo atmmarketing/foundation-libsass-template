@@ -6,11 +6,22 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 			  includePaths: ['bower_components/foundation/scss'],
-			  outputStyle: 'expanded'
+			  
 			},
 			dev: {
 				options: {
-			    sourceMap: 'scss/custom.css.map'
+			    sourceMap: true,
+			    outFile: '../default/css.dev/custom.css.map',
+			    outputStyle: 'indented'
+			  },
+			  files: {
+			    '../default/css.dev/custom.css': 'scss/app.lib.scss'
+			  }
+			},
+			prod: {
+				options: {
+			    sourceMap: false,
+			    outputStyle: 'compressed'
 			  },
 			  files: {
 			    '../default/css.dev/custom.css': 'scss/app.lib.scss'
@@ -106,7 +117,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	
-	grunt.registerTask('lib', ['cssmin:lib','uglify:lib','sass:dev']);
+	grunt.registerTask('lib', ['cssmin:lib','uglify:lib','sass:dev','watch']);
 	grunt.registerTask('default', ['sass:dev','watch']);
 	grunt.registerTask('prod', ['sass:dev','cssmin:prod','uglify:prod']);
 }
