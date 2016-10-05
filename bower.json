@@ -1,6 +1,13 @@
 {
   "name": "foundation-libsass-template",
   "dependencies": {
-    "foundation": "atmmarketing/bower-foundation"
+		"foundation": "atmmarketing/bower-foundation",
+		"velocity": "~1.2.3",
+		"parallax.js" : "pixelcog/parallax.js",
+		"social-feed" : "HartLarsson/social-feed",
+		"masonry" : "desandro/masonry",
+		"shufflejs" : "^4.0.0"
+
+
   }
 }
